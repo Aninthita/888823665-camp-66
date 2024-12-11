@@ -1,31 +1,148 @@
-.content .by{
-    color: blue;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    font-family: 'Anuphan', sans-serif;
 }
-.blob-outer-container{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    z-index: 0;
-    inset: 0;
+
+body {
+    background: radial-gradient(circle, #ffffff, #ffffff);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     margin: 0;
 }
-.blob-inner-container{
-    border-radius: 99999px;
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    min-width: 1000px;
-    overflow: hidden;
-    background-color: white;
-    transform: scale(0.6);
+
+.blob-outer-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(80px);
+    background: conic-gradient(from 0deg, #da5e52, #bd4351, #6435a7, #356fcb, #ff6f61);
+    
+    animation: spinBlob 10s linear infinite;
 }
-.blob{
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    background: conic-gradient(form 0 deg, #180161,#4F1787, #EB3678,#FB773C);
+
+.text-container {
+    position: relative;
+    z-index: 1;
+    color: rgb(255, 255, 255); 
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+form {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(13, 64, 112, 0.5);
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+}
+
+td {
+    padding: 10px 0;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+textarea,
+select {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 12px;
+    border: 1.25px solid #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #dad2d2;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+    
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #dfbbbb, 0 0 20px hsl(39, 77%, 83%),0 0 50px blanchedalmond;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+select option {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
+
+/*กรอบเมื่อป้อนข้อมูล/*/
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #88ffef;
+    box-shadow: 0 0 5px #8ee3f1, 0 0 20px hsl(189, 63%, 73%),0 0 50px rgb(123, 204, 224);
+}
+
+@keyframes spinBlob {
+    0% {
+        transform: rotate(0deg) scale(2);
+    }
+    100% {
+        transform: rotate(360deg) scale(2);
+    }
 }
